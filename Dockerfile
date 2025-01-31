@@ -23,6 +23,10 @@ WORKDIR /app/ui
 RUN npm install && \
     npm run build
 
+WORKDIR /app/electron
+RUN npm install && \
+    npm run build:linux
+
 FROM node:23-alpine 
 EXPOSE 5920 5921
 

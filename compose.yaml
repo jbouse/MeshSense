@@ -2,7 +2,7 @@ services:
   meshsense:
     container_name: meshsense
     image: meshsense
-    # network_mode: host
+    network_mode: host
     build: .
     ports:
       - "5920:5920"
@@ -16,4 +16,6 @@ services:
         read_only: true
     environment:
       ACCESS_KEY: noSecrets
-
+      PORT: 5920
+      NODE_TLS_REJECT_UNAUTHORIZED: 0
+      HEADLESS: 1
