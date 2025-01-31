@@ -1,0 +1,19 @@
+services:
+  meshsense:
+    container_name: meshsense
+    image: meshsense
+    # network_mode: host
+    build: .
+    ports:
+      - "5920:5920"
+    volumes:
+      - type: bind
+        source: ./data
+        target: /root/.local/share/meshsense
+      - type: bind
+        source: /var/run/dbus
+        target: /var/run/dbus
+        read_only: true
+    environment:
+      ACCESS_KEY: noSecrets
+
